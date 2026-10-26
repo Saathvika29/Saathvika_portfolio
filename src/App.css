@@ -1,0 +1,989 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* =========================================
+   1. GLOBAL STYLES
+========================================= */
+
+:root {
+  font-family: "Poppins", sans-serif;
+  color: #382530;
+  background: #fff8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --pink: #f9b8d0;
+  --deep-pink: #e875a2;
+  --dark-pink: #b84778;
+  --sky-blue: #8ecdf5;
+  --cream: #fff8fb;
+  --ink: #382530;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.portfolio {
+  overflow: hidden;
+}
+
+/* =========================================
+   2. NAVIGATION
+========================================= */
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: 76px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 248, 251, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(232, 117, 162, 0.16);
+}
+
+.logo {
+  font-family: "Gaegu", cursive;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--deep-pink);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--dark-pink);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* =========================================
+   3. HERO SECTION
+========================================= */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 100px 5% 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #f9b5ce, #ffc9dd);
+  overflow: hidden;
+}
+
+.hero-stage {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1200px);
+  height: min(72vh, 650px);
+  min-height: 560px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   4. CENTER AVATAR
+========================================= */
+
+.avatar-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(38%, 390px);
+  height: 90%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  filter: drop-shadow(0 12px 12px rgba(106, 54, 77, 0.12));
+  animation: avatarFloat 3s ease-in-out infinite;
+transform-origin: center;
+}
+
+/* =========================================
+   5. FLOATING INFORMATION CARDS
+========================================= */
+
+.info-card {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 245px;
+  min-height: 94px;
+  padding: 15px 17px;
+  border: 1.5px solid rgba(217, 101, 150, 0.65);
+  border-radius: 19px;
+  background: rgba(255, 248, 251, 0.96);
+  color: #75435b;
+  text-decoration: none;
+  box-shadow: 0 7px 22px rgba(184, 71, 120, 0.12);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(184, 71, 120, 0.2);
+}
+
+.info-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: #ffe4f0;
+  font-size: 1.3rem;
+}
+
+.info-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #b65c86;
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.info-card h3 {
+  margin: 0 0 5px;
+  color: #713b55;
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+.info-card p {
+  margin: 0;
+  color: #987184;
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
+
+.card-arrow {
+  color: var(--dark-pink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Top-left card */
+
+.info-location {
+  top: 14%;
+  left: 3%;
+}
+
+/* Top-right card */
+
+.info-student {
+  top: 12%;
+  right: 3%;
+}
+
+/* Bottom-left card */
+
+.info-developer {
+  bottom: 12%;
+  left: 2%;
+}
+
+/* Bottom-right card */
+
+.info-projects {
+  right: 2%;
+  bottom: 10%;
+}
+
+/* =========================================
+   6. CURVED ARROWS
+   Arrows extend outward from the avatar
+   toward the information cards.
+========================================= */
+
+.hero-arrows {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  color: #c95789;
+  pointer-events: none;
+}
+
+.hero-arrows path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.95;
+}
+
+/* =========================================
+   7. SPARKLES AND DECORATIONS
+========================================= */
+
+.sparkle {
+  position: absolute;
+  z-index: 3;
+  color: white;
+  font-size: 2rem;
+  pointer-events: none;
+  animation: sparkle 2.4s ease-in-out infinite;
+}
+
+.sparkle-one {
+  top: 20%;
+  left: 2%;
+}
+
+.sparkle-two {
+  top: 40%;
+  right: 2%;
+  animation-delay: 0.6s;
+}
+
+.sparkle-three {
+  top: 3%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.hero-decoration {
+  position: absolute;
+  z-index: 0;
+  color: rgba(255, 255, 255, 0.78);
+  pointer-events: none;
+}
+
+.decoration-one {
+  top: 22%;
+  left: 8%;
+  font-size: 4rem;
+}
+
+.decoration-two {
+  right: 8%;
+  bottom: 15%;
+  font-size: 4rem;
+}
+
+.decoration-three {
+  top: 18%;
+  right: 20%;
+  font-size: 3rem;
+}
+
+.decoration-four {
+  bottom: 20%;
+  right: 30%;
+  font-size: 2rem;
+}
+
+/* =========================================
+   8. SCROLL HINT
+========================================= */
+
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  color: #713b55;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.scroll-hint span {
+  display: inline-grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid rgba(113, 59, 85, 0.45);
+  border-radius: 50%;
+}
+
+/* =========================================
+   9. ABOUT, PROJECTS AND CONTACT PLACEHOLDERS
+========================================= */
+
+.placeholder-section {
+  min-height: 65vh;
+  padding: 120px 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fff8fb;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--dark-pink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.placeholder-section h2 {
+  max-width: 700px;
+  margin: 0;
+  font-family: "Gaegu", cursive;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+}
+
+.placeholder-section > p:last-child {
+  color: #745a68;
+}
+
+.projects-placeholder {
+  background: #ffedf4;
+}
+
+/* =========================================
+   10. ANIMATIONS
+========================================= */
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.6;
+    scale: 0.85;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.15;
+  }
+}
+
+/* =========================================
+   11. TABLETS
+========================================= */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .hero-stage {
+    min-height: 560px;
+  }
+
+  .avatar-wrapper {
+    width: 38%;
+  }
+
+  .info-card {
+    width: 215px;
+    min-height: 86px;
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .info-card h3 {
+    font-size: 0.85rem;
+  }
+
+  .info-card p {
+    font-size: 0.7rem;
+  }
+
+  .info-label {
+    font-size: 0.53rem;
+  }
+
+  .info-location {
+    left: 0;
+  }
+
+  .info-student {
+    right: 0;
+  }
+
+  .info-developer {
+    left: 0;
+  }
+
+  .info-projects {
+    right: 0;
+  }
+}
+
+/* =========================================
+   12. MOBILE NAVIGATION
+========================================= */
+
+@media (max-width: 700px) {
+  .navbar {
+    height: 66px;
+    padding: 0 6%;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 66px;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 6% 18px;
+    background: #fff8fb;
+    border-bottom: 1px solid #f4c2d6;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 13px 0;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   13. MOBILE HERO LAYOUT
+========================================= */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    padding: 95px 14px 30px;
+  }
+
+  .hero-stage {
+    width: 100%;
+    height: 650px;
+    min-height: 650px;
+    margin-top: 5px;
+  }
+
+  /* Smaller avatar on phones */
+
+  .avatar-wrapper {
+    top: 50%;
+    left: 50%;
+    width: min(55%, 260px);
+    height: 310px;
+  }
+
+  .hero-avatar {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Smaller information cards */
+
+  .info-card {
+    width: 46%;
+    min-height: 78px;
+    padding: 9px;
+    gap: 7px;
+    border-radius: 15px;
+  }
+
+  .info-icon {
+    width: 29px;
+    height: 29px;
+    border-radius: 9px;
+    font-size: 0.9rem;
+  }
+
+  .info-label {
+    margin-bottom: 4px;
+    font-size: 0.43rem;
+    letter-spacing: 0.3px;
+  }
+
+  .info-card h3 {
+    font-size: 0.73rem;
+    line-height: 1.35;
+  }
+
+  .info-card p {
+    font-size: 0.62rem;
+  }
+
+  /* Cards at the top */
+
+  .info-location {
+    top: 2%;
+    left: 0;
+  }
+
+  .info-student {
+    top: 2%;
+    right: 0;
+  }
+
+  /* Cards at the bottom */
+
+  .info-developer {
+    bottom: 2%;
+    left: 0;
+  }
+
+  .info-projects {
+    right: 0;
+    bottom: 2%;
+  }
+
+  /*
+    Hide the desktop arrows on phones.
+    Their paths are designed for the desktop layout.
+  */
+
+  /* Thin, elegant arrows */
+.hero-arrows {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  color: #c95789;
+  pointer-events: none;
+}
+
+.hero-arrows path {
+  fill: none;
+  stroke: #c95789;
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 1;
+}
+
+  .sparkle-one {
+    top: 27%;
+    left: 5%;
+  }
+
+  .sparkle-two {
+    top: 45%;
+    right: 5%;
+  }
+
+  .sparkle-three {
+    top: 22%;
+    right: 13%;
+  }
+
+  .decoration-one {
+    top: 28%;
+    left: 3%;
+    font-size: 2rem;
+  }
+
+  .decoration-two {
+    right: 3%;
+    bottom: 25%;
+    font-size: 2rem;
+  }
+
+  .decoration-three {
+    top: 18%;
+    right: 15%;
+    font-size: 2rem;
+  }
+
+  .decoration-four {
+    bottom: 27%;
+    left: 12%;
+  }
+}
+
+/* =========================================
+   14. VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+  .logo {
+    font-size: 1.75rem;
+  }
+
+  .hero-stage {
+    height: 600px;
+    min-height: 600px;
+  }
+
+  .avatar-wrapper {
+    width: 53%;
+    height: 280px;
+  }
+
+  .info-card {
+    width: 47%;
+    padding: 7px;
+    gap: 5px;
+  }
+
+  .info-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+
+  .info-card h3 {
+    font-size: 0.66rem;
+  }
+
+  .info-card p {
+    font-size: 0.57rem;
+  }
+
+  .info-label {
+    font-size: 0.38rem;
+  }
+}
+
+/* =========================================
+   15. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Keep arrows visible on mobile */
+@media (max-width: 600px) {
+  .hero-arrows {
+    display: block;
+    overflow: visible;
+  }
+
+  .hero-arrows path {
+    stroke-width: 1;
+  }
+}
+@keyframes avatarFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+/* ===== ABOUT ME: FULL-BODY AVATAR + SPEECH BUBBLE ===== */
+
+.about-section {
+  padding: 90px 5%;
+  background: linear-gradient(135deg, #ffe4ef, #fff5f9);
+  overflow: hidden;
+  color: #70425a;
+}
+
+.about-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(230px, 0.7fr) minmax(0, 2fr);
+  align-items: center;
+  gap: 20px;
+}
+
+/* Full-body avatar */
+
+.about-avatar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 0;
+}
+
+.about-avatar img {
+  display: block;
+  width: 125%;
+  max-width: 520px;
+  max-height: 850px;
+  height: auto;
+  object-fit: contain;
+  animation: none;
+}
+
+@keyframes aboutAvatarFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.about-doodle {
+  position: absolute;
+  color: #d65f96;
+  pointer-events: none;
+}
+
+.doodle-heart {
+  top: 12%;
+  left: 5%;
+  font-size: 3.5rem;
+  transform: rotate(-15deg);
+}
+
+.doodle-star {
+  right: 3%;
+  bottom: 25%;
+  font-size: 3rem;
+}
+
+/* Large speech bubble */
+
+.about-speech-bubble {
+   position: relative;
+  overflow: visible;
+  min-width: 0;
+  padding: clamp(24px, 3.5vw, 48px);
+  background: rgba(255, 250, 252, 0.97);
+  border: 3px solid #e78ab4;
+  border-radius: 55px;
+  box-shadow: 0 15px 45px rgba(190, 91, 137, 0.12);
+}
+
+/* Bubble tail points toward the avatar's shoes */
+
+.about-speech-bubble::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  bottom: 38px;
+  width: 22px;
+  height: 22px;
+  background: #fffafc;
+  border-left: 3px solid #e78ab4;
+  border-bottom: 3px solid #e78ab4;
+  transform: rotate(45deg);
+  border-radius: 0 0 0 3px;
+  z-index: 0;
+}
+
+.about-speech-bubble::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  bottom: 34px;
+  width: 5px;
+  height: 32px;
+  background: #fffafc;
+  z-index: 1;
+}
+
+.about-intro,
+.about-facts,
+.about-interests,
+.about-loves,
+.about-motto {
+  position: relative;
+  z-index: 1;
+}
+
+.about-eyebrow {
+  color: #c85b8e;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+.about-intro h2 {
+  margin: 8px 0 24px;
+  font-size: clamp(2rem, 3.4vw, 3.3rem);
+  line-height: 1.15;
+  color: #c94f89;
+}
+
+.about-intro h2 span {
+  color: #e17da9;
+}
+
+.about-intro h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.about-intro > p:not(.about-eyebrow) {
+  color: #87657a;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.about-goal {
+  margin: 22px 0 30px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #ffe4ef;
+  color: #a83e70;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+
+
+
+/* Responsive layout */
+
+@media (max-width: 850px) {
+  .about-section {
+    padding: 65px 5%;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-avatar {
+    margin-bottom: -15px;
+  }
+
+  .about-avatar img {
+  width: min(90%, 350px);
+  animation: none;
+}
+
+  .about-speech-bubble {
+    padding: 28px;
+    border-radius: 35px;
+  }
+
+  .about-speech-bubble::before {
+    top: -18px;
+    bottom: auto;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    transform: translateX(-50%) rotate(135deg);
+    border-radius: 0 0 0 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-section {
+    padding: 45px 16px;
+  }
+
+  .about-avatar img {
+    width: min(75%, 280px);
+  }
+
+  .about-speech-bubble {
+    padding: 22px 18px;
+    border-width: 2px;
+    border-radius: 28px;
+  }
+
+  .about-intro h2 {
+    font-size: 2rem;
+  }
+
+  .about-facts {
+    padding: 16px;
+  }
+
+  .fact-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-motto {
+    font-size: 1.1rem;
+  }
+}
