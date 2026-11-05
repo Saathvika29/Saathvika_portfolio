@@ -302,13 +302,13 @@ progress, and career roadmaps.</p>
           <h2>LET'S CREATE<br /><span>SOMETHING.</span></h2>
           <p>I'd love to connect, collaborate, and learn together.</p>
 
-          <a href="mailto:saathvika.sathu05@gmail.com" className="pink-button">
+          <a href="mailto:gottimukkula.saathvika@gmail.com" className="pink-button">
             SAY HELLO 
           </a>
 
           <div className="social-links">
-            <a href="https://github.com/" target="_blank" rel="noreferrer">GITHUB </a>
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer">LINKEDIN </a>
+            <a href="https://github.com/Saathvika29" target="_blank" rel="noreferrer">GITHUB </a>
+            <a href="https://www.linkedin.com/in/saathvika-gottimukkula/" target="_blank" rel="noreferrer">LINKEDIN </a>
           </div>
         </section>
 
