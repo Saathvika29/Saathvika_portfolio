@@ -275,7 +275,7 @@ function App() {
 lifestyle activities such as mood tracking, hydration, sleep, workouts, journaling, hobbies, streak
 progress, and career roadmaps.</p>
               <span className="project-tech">MERN Stack</span>
-              <a href="#" className="project-link">VIEW PROJECT ↗</a>
+              <a href="https://glowmax-webapp.vercel.app/" className="project-link">VIEW PROJECT ↗</a>
             </article>
 
             <article className="project-card">
@@ -283,7 +283,7 @@ progress, and career roadmaps.</p>
               <h3>Apple Detection</h3>
               <p>Developed Python modules for report generation and post-detection analysis in a YOLOv9-based apple detection project. Implemented apple counting, size estimation, ripeness analysis, and yield prediction using OpenCV and NumPy. Selected for Project Expo.</p>
               <span className="project-tech">Python · YOLO · OpenCV</span>
-              <a href="#" className="project-link">VIEW PROJECT ↗</a>
+
             </article>
 
             <article className="project-card">
@@ -291,7 +291,7 @@ progress, and career roadmaps.</p>
               <h3>Browser Game + Score API</h3>
               <p>Developed a browser-based reflex game featuring a live leaderboard for tracking high scores.</p>
               <span className="project-tech">Node.js ·  Express.js · JavaScript</span>
-              <a href="#" className="project-link">VIEW PROJECT ↗</a>
+              <a href="https://github.com/Saathvika29/tap-blitz-game" className="project-link">VIEW PROJECT ↗</a>
             </article>
           </div>
         </section>
