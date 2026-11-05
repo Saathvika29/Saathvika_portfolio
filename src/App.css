@@ -1311,4 +1311,222 @@ body {
 }
 
 
+/* =========================================
+   PORTFOLIO POLISH - FINAL OVERRIDES
+========================================= */
+
+/* SG LOGO */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.logo-s {
+  color: #f34db7 !important;
+}
+
+.logo-rest {
+  color: #ffffff !important;
+}
+
+/* ABOUT SECTION BUTTONS */
+
+.about-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.about-actions .pink-button {
+  min-height: 50px;
+  padding: 14px 22px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.resume-button {
+  background: transparent !important;
+  color: #f34db7 !important;
+  border: 1px solid #f34db7 !important;
+}
+
+.resume-button:hover {
+  background: #f34db7 !important;
+  color: #ffffff !important;
+}
+
+/* SAY HELLO BUTTON */
+
+.contact-section .pink-button {
+  min-height: 58px;
+  padding: 17px 38px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* MOBILE HOME SECTION */
+
+@media (max-width: 600px) {
+
+  .cover-section {
+    height: 100svh;
+    min-height: 650px;
+    padding: 0 15px;
+  }
+
+  .cover-title {
+    top: 7%;
+    width: 100%;
+    font-size: clamp(36px, 10vw, 54px);
+    letter-spacing: -2px;
+    white-space: nowrap;
+  }
+
+  .cover-avatar {
+    top: 23%;
+    left: 50%;
+    width: min(78vw, 310px);
+    height: 45%;
+    transform: translateX(-50%);
+  }
+
+  .cover-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .avatar-hint {
+    top: 100%;
+    left: 50%;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* INTRO OPEN STATE */
+
+  .cover-section.intro-open {
+    height: auto;
+    min-height: 780px;
+    padding: 0 15px 55px;
+  }
+
+  .cover-section.intro-open .cover-avatar {
+    top: 7%;
+    left: 50%;
+    width: min(65vw, 240px);
+    height: 34%;
+    transform: translateX(-50%);
+  }
+
+  .cover-section.intro-open .cover-intro-content {
+    top: 45%;
+    left: 6%;
+    width: 88%;
+    transform: translateY(0);
+    text-align: left;
+    gap: 15px;
+  }
+
+  .cover-intro-content {
+    align-items: stretch;
+  }
+
+  .intro-text {
+    align-items: flex-start;
+  }
+
+  .intro-tag {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+  }
+
+  .intro-text h2 {
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .intro-text h3 {
+    font-size: 23px;
+  }
+
+  .cover-description {
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+  }
+
+  /* ABOUT */
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .about-image {
+    height: 260px;
+  }
+
+  .about-text h3 {
+    font-size: 27px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .about-actions {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .about-actions .pink-button {
+    flex: 1 1 145px;
+    min-width: 0;
+    padding: 13px 10px;
+    font-size: 11px;
+  }
+
+  /* CONTACT */
+
+  .contact-section .pink-button {
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+
+  /* FOOTER */
+
+  .footer-logo {
+    width: auto;
+  }
+}
+
+/* SMALLER PHONES */
+
+@media (max-width: 380px) {
+  .cover-title {
+    font-size: 34px;
+    letter-spacing: -2px;
+  }
+
+  .about-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-actions .pink-button {
+    width: 100%;
+  }
+}
+
 

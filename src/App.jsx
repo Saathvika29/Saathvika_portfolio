@@ -55,7 +55,10 @@ function App() {
 
       {/* NAVBAR */}
       <nav className="navbar">
-        <a href="#home" className="logo">SG.</a>
+        <a href="#home" className="logo">
+  <span className="logo-s">S</span>
+  <span className="logo-rest">G.</span>
+</a>
 
         <button
           className="menu-toggle"
@@ -68,7 +71,7 @@ function App() {
         <div className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
           <a href="#home" onClick={closeMenu}>HOME</a>
           <a href="#about" onClick={closeMenu}>ABOUT</a>
-          <a href="#education">EDUCATION</a>
+          <a href="#education" onClick={closeMenu}>EDUCATION</a>
           <a href="#skills">SKILLS</a>
           <a href="#projects" onClick={closeMenu}>PROJECTS</a>
           <a href="#contact" onClick={closeMenu}>CONTACT</a>
@@ -184,9 +187,19 @@ function App() {
                 I believe in learning by building, staying curious,
                 and getting a little better every day.
               </p>
-              <a href="#projects" className="pink-button">
-                EXPLORE MY WORK
-              </a>
+              <div className="about-actions">
+  <a href="#projects" className="pink-button">
+    EXPLORE MY WORK ↗
+  </a>
+
+  <a
+    href="/Saathvika_Resume.pdf"
+    download="Saathvika_Resume.pdf"
+    className="pink-button resume-button"
+  >
+    DOWNLOAD RESUME ↓
+  </a>
+</div>
             </div>
           </div>
         </section>
@@ -303,7 +316,12 @@ progress, and career roadmaps.</p>
 
       {/* FOOTER */}
       <footer className="footer">
-       <div className="footer-logo"> <a href="#home" className="logo">SG. </a> </div>
+       <div className="footer-logo">
+  <a href="#home" className="logo">
+    <span className="logo-s">S</span>
+    <span className="logo-rest">G.</span>
+  </a>
+</div>
         <p>DESIGNED & BUILT BY SAATHVIKA © 2026</p>
         <a href="#home">BACK TO TOP ↑</a>
       </footer>
