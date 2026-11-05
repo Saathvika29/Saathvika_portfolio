@@ -1,229 +1,318 @@
 
 import { useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
+import SmoothScroll from "./components/SmoothScroll";
+import ScrollAnimations from "./components/ScrollAnimations";
 import avatar from "./assets/avatar-head.png";
 import hoverAvatar from "./assets/avatar-hover.png";
 import fullBodyAvatar from "./assets/avatar-fullbody.png";
+import Particles from "./components/Particles";
+
+import {
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiCplusplus,
+  SiPython,
+  SiGithub,
+} from "react-icons/si";
+
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isIntroOpen, setIsIntroOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+  const skills = [
+  { name: "HTML", icon: <SiHtml5 /> },
+  { name: "CSS", icon: <SiCss /> },
+  { name: "JavaScript", icon: <SiJavascript /> },
+  { name: "React", icon: <SiReact /> },
+  { name: "Node.js", icon: <SiNodedotjs /> },
+  { name: "Express.js", icon: <SiExpress /> },
+  { name: "MongoDB", icon: <SiMongodb /> },
+  { name: "C++", icon: <SiCplusplus /> },
+  { name: "Python", icon: <SiPython /> },
+  { name: "GitHub", icon: <SiGithub /> },
+];
+  
 
   return (
+   < >
+   <SmoothScroll />
+  <ScrollAnimations isIntroOpen={isIntroOpen} />
+   
+
+   
+    
     <div className="portfolio">
-      {/* Navigation */}
+
+      {/* NAVBAR */}
       <nav className="navbar">
-        <a href="#home" className="logo">
-          Saathvika <span>Gottimukkula</span>
-        </a>
+        <a href="#home" className="logo">SG.</a>
 
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
+          aria-label="Toggle menu"
         >
           {menuOpen ? "✕" : "☰"}
         </button>
 
         <div className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
-          <a href="#home" onClick={() => setMenuOpen(false)}>
-            Home
-          </a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>
-            About
-          </a>
-          <a href="#projects" onClick={() => setMenuOpen(false)}>
-            Projects
-          </a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </a>
+          <a href="#home" onClick={closeMenu}>HOME</a>
+          <a href="#about" onClick={closeMenu}>ABOUT</a>
+          <a href="#education">EDUCATION</a>
+          <a href="#skills">SKILLS</a>
+          <a href="#projects" onClick={closeMenu}>PROJECTS</a>
+          <a href="#contact" onClick={closeMenu}>CONTACT</a>
         </div>
       </nav>
 
       <main>
-        {/* Hero Section */}
-        <section className="hero" id="home">
-          <div className="hero-stage">
-            {/* Decorative background elements */}
-            <span className="hero-decoration decoration-one">♡</span>
-            <span className="hero-decoration decoration-two">✿</span>
-            <span className="hero-decoration decoration-three">✧</span>
-            <span className="hero-decoration decoration-four">✦</span>
+        
 
-            {/* Top-left information */}
-            <div className="info-card info-location">
-              <span className="info-icon">📍</span>
-              <div>
-                <span className="info-label">MY HOMETOWN</span>
-                <h3>Hyderabad</h3>
-                <p>India ♡</p>
-              </div>
-            </div>
-
-            {/* Top-right information */}
-            <div className="info-card info-student">
-              <span className="info-icon">🎀</span>
-              <div>
-                <span className="info-label">A LITTLE ABOUT ME</span>
-                <h3>CSE Student</h3>
-                <p>Class of 2027</p>
-              </div>
-            </div>
-
-            {/* Center avatar */}
-            <div className="avatar-wrapper">
-              <span className="sparkle sparkle-one">✦</span>
-              <span className="sparkle sparkle-two">✧</span>
-              <span className="sparkle sparkle-three">✦</span>
-
-              <img
-  src={avatar}
-  alt="Chibi illustration representing Saathvika"
-  className="hero-avatar"
-  onMouseEnter={(e) => {
-    e.currentTarget.src = hoverAvatar;
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.src = avatar;
-  }}
-/>
-            </div>
-
-            {/* Bottom-left information */}
-            <div className="info-card info-developer">
-              <span className="info-icon">💻</span>
-              <div>
-                <span className="info-label">CURRENTLY LEARNING</span>
-                <h3>Web Development</h3>
-                <p>Learning by building ✨</p>
-              </div>
-            </div>
-
-            {/* Bottom-right clickable information */}
-            <a href="#projects" className="info-card info-projects">
-              <span className="info-icon">🌸</span>
-              <div>
-                <span className="info-label">TAKE A LOOK</span>
-                <h3>Projects & Skills</h3>
-                <p>Explore my work <span className="card-arrow">↗</span></p>
-              </div>
-            </a>
-
-            {/* Curved arrows: start near avatar and point outward */}
-            <svg
-              className="hero-arrows"
-              viewBox="0 0 1000 650"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <defs>
-               <marker
-  id="arrowhead"
-  markerWidth="8"
-  markerHeight="8"
-  refX="6"
-  refY="4"
-  orient="auto"
-  markerUnits="userSpaceOnUse"
+        {/* FIRST SCREEN */}
+<section
+  className={`cover-section ${isIntroOpen ? "intro-open" : ""}`}
+  id="home"
 >
-  <path
-    d="M1,1 L6,4 L1,7"
-    fill="none"
-    stroke="#c95789"
-    strokeWidth="1"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</marker>
-              </defs>
+  
+  {/* REACT BITS PARTICLES BACKGROUND */}
+<div className="hero-particles">
+  <Particles
+  particleCount={200}
+  particleSpread={10}
+  particleColors={["#ff00aa", "#ffffff"]}
+  speed={0.5}
+  particleBaseSize={100}
+  sizeRandomness={0.3}
+  glow={1}
+  twinkle={0.5}
+  intro={false}
+  opacity={1}
+/>
+</div>
+  {/* PORTFOLIO TITLE */}
+  <h1 className={`cover-title ${isIntroOpen ? "title-hidden" : ""}`}>
+  PORTFOLIO’26
+</h1>
 
-              {/* Avatar to hometown */}
-             {/* Top-left arrow */}
-<path d="M 405 245 Q 350 190 290 140" markerEnd="url(#arrowhead)" />
+  {/* CLICKABLE AVATAR */}
+  <button
+    className="cover-avatar"
+    onClick={() => setIsIntroOpen(!isIntroOpen)}
+    onMouseEnter={() => setIsHovering(true)}
+    onMouseLeave={() => setIsHovering(false)}
+    aria-label="Click to reveal my introduction"
+  >
+    {/* CLICK ME HINT */}
+{!isIntroOpen && (
+  <div className="avatar-hint">
+    <span className="hint-arrow">↑</span>
+    CLICK ME
+  </div>
+)}
+    <img
+      src={isHovering ? hoverAvatar : avatar}
+      alt="Saathvika illustrated avatar"
+    />
+  </button>
 
-{/* Top-right arrow */}
-<path d="M 595 245 Q 650 190 710 140" markerEnd="url(#arrowhead)" />
+  {/* INTRODUCTION REVEALED ON CLICK */}
+  {/* INTRODUCTION REVEALED ON CLICK */}
+<div className="cover-intro-content">
 
-{/* Bottom-left arrow */}
-<path d="M 405 390 Q 350 445 290 510" markerEnd="url(#arrowhead)" />
+  <div className="intro-accent-line"></div>
 
-{/* Bottom-right arrow */}
-<path d="M 595 390 Q 650 445 710 510" markerEnd="url(#arrowhead)" />
-            </svg>
+  <div className="intro-text">
+
+    <p className="intro-tag">
+      CREATIVE DEVELOPER <span>•</span> TECH ENTHUSIAST
+    </p>
+
+    <h2>
+      Hello, I'm <span>Saathvika</span>
+    </h2>
+
+    <h3>Full Stack Developer</h3>
+
+    <p className="cover-description">
+      Building ideas into digital experiences. Exploring web
+      development, problem-solving and AI.
+    </p>
+
+    
+
+    <a href="#contact" className="pink-button hire-button">
+      HIRE ME
+    </a>
+
+
+
+  </div>
+</div>
+
+  
+</section>
+
+        {/* ABOUT */}
+        <section className="content-section about-section" id="about">
+          <p className="section-label">GET TO KNOW ME</p>
+          <h2 className="section-heading">A LITTLE ABOUT <span>ME.</span></h2>
+
+          <div className="about-grid">
+            <div className="about-image">
+              <img src={fullBodyAvatar} alt="Saathvika illustration" />
+            </div>
+
+            <div className="about-text">
+              <h3>Curious mind. Creative soul.</h3>
+              <p>
+                I'm a CSE undergraduate who enjoys learning,
+                experimenting, and turning ideas into real projects.
+                I'm currently growing my skills in full-stack
+                development, DSA, and artificial intelligence.
+              </p>
+              <p>
+                I believe in learning by building, staying curious,
+                and getting a little better every day.
+              </p>
+              <a href="#projects" className="pink-button">
+                EXPLORE MY WORK
+              </a>
+            </div>
           </div>
-
-          <a href="#about" className="scroll-hint">
-            <span>↓</span> scroll to explore
-          </a>
         </section>
 
-        
-{/* About Me Section */}
-<section className="about-section" id="about">
-  <div className="about-layout">
+        {/* EDUCATION SECTION */}
+<section className="content-section education-section" id="education">
+  <p className="section-label">MY ACADEMIC JOURNEY</p>
+  <h2 className="section-heading">EDUCATION.</h2>
+  
 
-    {/* Full-body avatar */}
-    <div className="about-avatar">
-      <img
-        src={fullBodyAvatar}
-        alt="Saathvika's illustrated avatar"
-      />
-      <span className="about-doodle doodle-heart">♡</span>
-      <span className="about-doodle doodle-star">✧</span>
-    </div>
+  <div className="education-timeline">
 
-    {/* Large speech bubble */}
-    <div className="about-speech-bubble">
-
-      <div className="about-intro">
-        <p className="about-eyebrow">GET TO KNOW ME</p>
-        <h2>A little about me <span>♡</span></h2>
-
-        <h3>Hi, I'm Saathvika!</h3>
-
-        <p>
-          I'm a Computer Science Engineering student who loves exploring
-          technology, building things for the web, and turning ideas into
-          something real.
-        </p>
-
-        <p>
-          Currently, I'm strengthening my development skills, solving
-          Data Structures and Algorithms problems, and exploring the
-          exciting world of AI. I believe every project and every mistake
-          is an opportunity to learn something new.
-        </p>
-
-      
+    <div className="timeline-item">
+      <div className="timeline-dot"></div>
+      <div className="education-card">
+        <span className="education-year">2023 — 2027</span>
+        <h3>Bachelor of Engineering</h3>
+        <h4>Computer Science & Engineering</h4>
+        <p>Gokaraju Lailavathi Engineering College</p>
+        <span className="education-score">CGPA: 8.9</span>
       </div>
-
-
-      
     </div>
+
+    <div className="timeline-item">
+      <div className="timeline-dot"></div>
+      <div className="education-card">
+        <span className="education-year">2021 — 2023</span>
+        <h3>Intermediate</h3>
+        <p>Deeksha Junior College</p>
+        <span className="education-score">Percentage: 94.4%</span>
+      </div>
+    </div>
+
+    <div className="timeline-item">
+      <div className="timeline-dot"></div>
+      <div className="education-card">
+        <span className="education-year">2021</span>
+        <h3>Secondary Education (Class 10th)</h3>
+        <p>St. Ann's High School</p>
+        <span className="education-score">CGPA: 10</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
+        {/* SKILLS */}
+      
+        <section className="content-section skills-section" id="skills">
+          <p className="section-label">WHAT I WORK WITH</p>
+  <h2 className="section-heading">MY TECH STACK.</h2>
 
-        {/* Projects Section */}
-        <section
-          className="placeholder-section projects-placeholder"
-          id="projects"
-        >
-          <p className="eyebrow">THINGS I'VE BUILT</p>
-          <h2>My little creations. 💻</h2>
-          <p>Our interactive project cards are coming next!</p>
+  <div className="skills-grid">
+    {skills.map((skill) => (
+      <div className="skill-card" key={skill.name}>
+        <span className="skill-icon">{skill.icon}</span>
+        <p>{skill.name}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+        {/* PROJECTS */}
+        <section className="content-section projects-section" id="projects">
+          <p className="section-label">THINGS I'VE BUILT</p>
+          <h2 className="section-heading">PROJECTS.</h2>
+
+          <div className="projects-grid">
+            <article className="project-card">
+              <span className="project-number">01</span>
+              <h3>GlowMax</h3>
+              <p>Developed a full-stack wellness and productivity platform that helps users monitor daily health and
+lifestyle activities such as mood tracking, hydration, sleep, workouts, journaling, hobbies, streak
+progress, and career roadmaps.</p>
+              <span className="project-tech">MERN Stack</span>
+              <a href="#" className="project-link">VIEW PROJECT ↗</a>
+            </article>
+
+            <article className="project-card">
+              <span className="project-number">02</span>
+              <h3>Apple Detection</h3>
+              <p>Developed Python modules for report generation and post-detection analysis in a YOLOv9-based apple detection project. Implemented apple counting, size estimation, ripeness analysis, and yield prediction using OpenCV and NumPy. Selected for Project Expo.</p>
+              <span className="project-tech">Python · YOLO · OpenCV</span>
+              <a href="#" className="project-link">VIEW PROJECT ↗</a>
+            </article>
+
+            <article className="project-card">
+              <span className="project-number">03</span>
+              <h3>Browser Game + Score API</h3>
+              <p>Developed a browser-based reflex game featuring a live leaderboard for tracking high scores.</p>
+              <span className="project-tech">Node.js ·  Express.js · JavaScript</span>
+              <a href="#" className="project-link">VIEW PROJECT ↗</a>
+            </article>
+          </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="placeholder-section" id="contact">
-          <p className="eyebrow">LET'S CONNECT</p>
-          <h2>Have something in mind? ♡</h2>
-          <p>We'll create your interactive contact section here!</p>
+        {/* CONTACT */}
+        <section className="contact-section" id="contact">
+          <p className="section-label">HAVE A PROJECT IN MIND?</p>
+          <h2>LET'S CREATE<br /><span>SOMETHING.</span></h2>
+          <p>I'd love to connect, collaborate, and learn together.</p>
+
+          <a href="mailto:saathvika.sathu05@gmail.com" className="pink-button">
+            SAY HELLO 
+          </a>
+
+          <div className="social-links">
+            <a href="https://github.com/" target="_blank" rel="noreferrer">GITHUB </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noreferrer">LINKEDIN </a>
+          </div>
         </section>
+
       </main>
+
+      {/* FOOTER */}
+      <footer className="footer">
+       <div className="footer-logo"> <a href="#home" className="logo">SG. </a> </div>
+        <p>DESIGNED & BUILT BY SAATHVIKA © 2026</p>
+        <a href="#home">BACK TO TOP ↑</a>
+      </footer>
+
     </div>
+    
+    </>
   );
 }
 
 export default App;
+
